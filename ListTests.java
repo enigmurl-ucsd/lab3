@@ -25,4 +25,12 @@ public class ListTests {
         y.add("Good1");
         assertEquals(y, ListExamples.merge(x,y));
     }
+
+    @Test(timeout = 10000)
+public void testMergeGood() {
+    ArrayList<String> x = new ArrayList<>();
+    x.add("Good1");
+    ArrayList<String> y = new ArrayList<>();
+    assertEquals(x, ListExamples.merge(x,y));
+}
 }
