@@ -41,14 +41,16 @@ public class FileExample {
 	static List<File> getFiles(File start) throws IOException {
 	  File f = start;
 	  List<File> result = new ArrayList<>();
-	  result.add(start);
 	  if(f.isDirectory()) {
 	    File[] paths = f.listFiles();
 	    for(File subFile: paths) {
-	      result.add(subFile);
+                for (File f2 : getFiles(subFile)) {
+	            result.add(f2);
+                }
 	    }
-	  }
-	  return result;
+	  } else result.add(start);
+	  result.sort(null);
+          return result;
 	}
 }
 

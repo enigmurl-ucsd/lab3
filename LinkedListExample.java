@@ -40,15 +40,20 @@ class LinkedList {
         // Otherwise, loop until the end and add at the end with a null
         while(n.next != null) {
             n = n.next;
-            n.next = new Node(value, null);
         }
+        n.next = new Node(value, null);
     }
+
     /**
      * @return the value of the first element in the list
      */
     public int first() {
+        Node n = this.root;
+        // If no such element, throw an exception
+        if(n == null) { throw new NoSuchElementException(); }
         return this.root.value;
     }
+
     /**
      * @return the value of the last element in the list
      */
@@ -64,6 +69,7 @@ class LinkedList {
         }
         return n.value;
     }
+
     /**
      * @return a string representation of the list
      */
@@ -76,6 +82,7 @@ class LinkedList {
         }
         return s;
     }
+
     /**
      * @return the number of elements in the list
      */
